@@ -1,2 +1,74 @@
 <!-- slot:cover-letter -->
-<h2>Cover letter</h2>
+<div id="details-and-controls">
+<article>
+<h2 class="no-print">Cover letter</h2>
+
+<p>Hello <span data-id="hiring-manager">Hiring Manager</span>!</p>
+
+<p>After seeing your <span data-id="job-title">Job Title</span> opening and reading
+more about <span data-id="company-name">Company</span>, I decided <span data-id="company-name">
+Company</span> was the kind of place I'd like to work at.</p>
+
+<p data-id="body1"></p>
+<p data-id="body2"></p>
+<p data-id="body3"></p>
+
+<p>I look forward to talking with you more about <span data-id="job-title">Job Title</span>
+and how <span data-id="company-name">Company</span> and I can work together.
+
+<p>Thanks!</p>
+
+<p>Kenneth</p>
+</article>
+
+<form id="print-options" class="no-print">
+    <fieldset>
+        <legend>Customize</legend>
+        <label title="Hiring manager name">
+            <input type="text" id="hiring-manager" placeholder="Hiring Manager">
+            Hiring manager
+        </label>
+        <label title="Company name">
+            <input id="company-name" placeholder="Company" type="text">
+            Company
+        </label>
+        <label title="Job title">
+            <input id="job-title" placeholder="Job Title" type="text">
+            Job title
+        </label>
+        <label title="Body paragraph 1">
+            <textarea id="body1" placeholder="Body paragraph 1"></textarea>
+            Body paragraph 1
+        </label>
+        <label title="Body paragraph 2">
+            <textarea id="body2" placeholder="Body paragraph 2"></textarea>
+            Body paragraph 2
+        </label>
+        <label title="Body paragraph 3">
+            <textarea id="body3" placeholder="Body paragraph 3"></textarea>
+            Body paragraph 3
+        </label>
+    </fieldset>
+</form>
+
+<script>
+    document.querySelector("#hiring-manager").addEventListener("change", (e) => {
+        document.querySelector("[data-id=hiring-manager]").innerHTML = e.target.value;
+    });
+    document.querySelector("#company-name").addEventListener("change", (e) => {
+        document.querySelector("[data-id=company-name]").innerHTML = e.target.value;
+    });
+    document.querySelector("#job-title").addEventListener("change", (e) => {
+        document.querySelector("[data-id=job-title]").innerHTML = e.target.value;
+    });
+    document.querySelector("#body1").addEventListener("change", (e) => {
+        document.querySelector("[data-id=body1]").innerHTML = e.target.value;
+    });
+    document.querySelector("#body2").addEventListener("change", (e) => {
+        document.querySelector("[data-id=body2]").innerHTML = e.target.value;
+    });
+    document.querySelector("#body3").addEventListener("change", (e) => {
+        document.querySelector("[data-id=body3]").innerHTML = e.target.value;
+    });
+</script>
+</div>
