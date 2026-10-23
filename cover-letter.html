@@ -52,23 +52,16 @@ and how <span data-id="company-name">Company</span> and I can work together.
 </form>
 
 <script>
-    document.querySelector("#hiring-manager").addEventListener("change", (e) => {
-        document.querySelector("[data-id=hiring-manager]").innerHTML = e.target.value;
+    document.querySelector("#print-options").addEventListener("change", (e) => {
+        if (!e.target.id) return;
+        document.querySelectorAll(`[data-id="${e.target.id}"]`).forEach((slot) => {
+            slot.textContent = e.target.value || slot.dataset.original;
+        });
     });
-    document.querySelector("#company-name").addEventListener("change", (e) => {
-        document.querySelector("[data-id=company-name]").innerHTML = e.target.value;
-    });
-    document.querySelector("#job-title").addEventListener("change", (e) => {
-        document.querySelector("[data-id=job-title]").innerHTML = e.target.value;
-    });
-    document.querySelector("#body1").addEventListener("change", (e) => {
-        document.querySelector("[data-id=body1]").innerHTML = e.target.value;
-    });
-    document.querySelector("#body2").addEventListener("change", (e) => {
-        document.querySelector("[data-id=body2]").innerHTML = e.target.value;
-    });
-    document.querySelector("#body3").addEventListener("change", (e) => {
-        document.querySelector("[data-id=body3]").innerHTML = e.target.value;
+
+    // Remember the default text so clearing an input restores it.
+    document.querySelectorAll("[data-id]").forEach((slot) => {
+        slot.dataset.original = slot.textContent.trim();
     });
 </script>
 </div>
