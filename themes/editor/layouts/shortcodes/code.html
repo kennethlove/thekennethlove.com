@@ -1,0 +1,6 @@
+<figure>
+    {{- with .Get "file" }}
+    <figcaption><em>file: <code>{{ . }}</code></em></figcaption>
+    {{- end }}
+    {{ highlight (trim $.Inner "\n\r") ($.Get "lang") "" }}
+</figure>

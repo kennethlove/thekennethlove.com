@@ -1,0 +1,26 @@
+<nav class="nav">
+    <ul>
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+    </ul>
+
+    <nav class="nav post-nav">
+        <ul>
+            {{ range first 3 (where
+            .Site.Taxonomies.categories.blog.Pages.ByDate.Reverse "Section"
+            "posts") }}
+            <li>
+                <a
+                    href="{{ .Permalink }}"
+                    class="post-nav-item"
+                    title="{{ .Summary }}"
+                    >{{ .File.LogicalName }}</a
+                >
+            </li>
+            {{ end }} {{ with .Site.GetPage "/posts" }}
+            <li><a href="{{ .Permalink }}">&hellip;</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+</nav>

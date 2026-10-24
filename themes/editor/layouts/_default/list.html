@@ -1,0 +1,21 @@
+{{ define "title" }}{{ .Title }} from {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section>
+    <header>
+        <h1>{{.Title}}</h1>
+    </header>
+
+    {{ .Content }}
+
+    <nav id="post-list">
+        {{ range .Data.Pages }}
+        <article>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <p class="date">{{ .Date.Format "2006-01-02" }}</p>
+            <p>{{ .Description }}</p>
+        </article>
+        {{ end }}
+    </nav>
+</section>
+{{ end }}

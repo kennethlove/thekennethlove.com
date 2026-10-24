@@ -1,0 +1,65 @@
+baseURL         = "https://thekennethlove.com/"
+enableRobotsTXT = true
+locale          = "en-US"
+rssLimit        = 10
+theme           = "editor"
+title           = "Kenneth Love"
+
+[author]
+name = "Kenneth Love"
+
+[markup]
+[markup.highlight]
+codeFences = true
+noClasses  = false
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+images = ["/android-chrome-512x512.png"]
+
+[permalinks]
+posts = "/:year/:month/:title/"
+
+[taxonomies]
+category = "categories"
+series   = "series"
+tag      = "tags"
+
+[[menu.main]]
+identifier = "readme"
+name       = "README.md"
+url        = "/"
+weight     = 100
+
+[[menu.main]]
+identifier = "resume"
+name       = "resume.md"
+url        = "/resume/"
+weight     = 110
+
+[[menu.main]]
+identifier = "mentoring"
+name       = "mentoring.md"
+url        = "/mentoring/"
+weight     = 120
+
+[[menu.main]]
+identifier = "videos"
+name       = "videos.md"
+url        = "/videos/"
+weight     = 130
+
+[[menu.main]]
+identifier = "posts"
+name       = "posts/"
+url        = "/posts/"
+weight     = 140
+
+# WHY: default minifier strips HTML comments, killing the `<!-- slot:.. -->`
+# anchors the edge function splices private snippets onto. Verified a no-op on
+# current output (site has no comments today), so the lean page is unchanged.
+[minify]
+[minify.tdewolff.html]
+KeepComments = true

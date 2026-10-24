@@ -1,0 +1,11 @@
+{{- $src := .Get "src" -}}
+{{- if not (or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "//")) -}}
+    {{- $src = $src | relURL -}}
+{{- end -}}
+{{- $src = .Page.Resources.Get $src -}}
+{{- $opts := dict "display" "block" -}}
+
+<figure>
+    <figcaption>{{ .Inner | strings.TrimSpace | .Page.RenderString $opts }}</figcaption>
+    <img src='{{ $src }}' alt='{{ .Get "alt" }}'>
+</figure>

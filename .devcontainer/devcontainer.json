@@ -1,0 +1,9 @@
+{
+    "name": "Hugo",
+    "image": "mcr.microsoft.com/devcontainers/base:jammy",
+    "features": {
+        "ghcr.io/devcontainers/features/hugo:1": {
+            "version": "0.166.0"
+        }
+    }
+}

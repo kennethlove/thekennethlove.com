@@ -1,0 +1,769 @@
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/maple-mono@5.3.0/index.css");
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+* {
+    border: 0 none;
+    font-family: "Maple Mono", monospace;
+    font-size: 100%;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+html {
+    background-color: var(--ff-purple);
+    color: var(--ff-white);
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+blockquote,
+form,
+ul,
+ol,
+dl {
+    margin: 1rem 0;
+}
+
+li,
+dd,
+blockquote {
+    margin-left: 2ch;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 0.125ch;
+    margin-top: 2em;
+    text-decoration: underline;
+}
+
+h1::before {
+    content: "# ";
+}
+
+h2::before {
+    content: "## ";
+}
+
+h3::before {
+    content: "### ";
+}
+
+h4::before {
+    content: "#### ";
+}
+
+h5::before {
+    content: "##### ";
+}
+
+h6::before {
+    content: "###### ";
+}
+
+h2 + h3 {
+    margin-top: 0;
+}
+
+blockquote,
+p,
+table {
+    margin-top: 0;
+}
+
+blockquote,
+p,
+li {
+    line-height: 1.5;
+}
+
+figure {
+    background-color: var(--ff-violet);
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+figure blockquote {
+    background-color: #47415e;
+    margin-left: 0;
+    padding: 0.5rem;
+}
+
+figcaption {
+    color: var(--ff-yellow);
+    display: block;
+}
+
+figcaption code {
+    background: var(--ff-violet);
+    color: #f6d3ff;
+    display: inline-block;
+    padding: 0.125rem 0.3rem;
+}
+
+a,
+a:visited {
+    border-bottom: 1px dashed;
+    color: var(--ff-mint);
+    font-style: normal;
+    font-weight: 400;
+    padding: 0.1ch 0.2ch;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    background-color: var(--ff-yellow);
+    border-bottom-style: solid;
+    color: var(--ff-purple);
+}
+
+em {
+    color: var(--ff-yellow);
+    font-style: italic;
+}
+
+i {
+    font-style: italic;
+}
+
+b,
+strong {
+    color: var(--ff-mint);
+    font-weight: bold;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+table th {
+    border-bottom: 2px solid var(--ff-lightyellow);
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding-bottom: 0.5rem;
+}
+
+table td {
+    background-color: var(--ff-violet);
+    padding: 0.5rem;
+}
+
+table td em {
+    color: var(--ff-pink);
+    font-style: italic;
+    font-weight: normal;
+}
+
+table tbody tr:first-child td {
+    font-weight: bold;
+    text-align: center;
+}
+
+li code,
+p code {
+    background: var(--ff-violet);
+    color: #f6d3ff;
+    display: inline-block;
+    padding: 0.25ch 0.5ch;
+}
+
+abbr {
+    cursor: help;
+    font-variant: small-caps;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: min-content minmax(0, 1fr);
+    line-height: 1.75;
+    margin-top: 0;
+}
+
+dd {
+    overflow-wrap: anywhere;
+}
+
+time {
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+
+    li {
+        position: relative;
+    }
+
+    li::before {
+        content: "- ";
+        left: -2ch;
+        position: absolute;
+    }
+}
+
+/* ==========================================================================
+   Layout — Grid, Responsive Breakpoints, Sidebar, Main
+   ========================================================================== */
+
+.container {
+    display: grid;
+    gap: 1rem;
+    margin-inline: auto;
+    max-width: 80ch;
+    padding-inline: 2ch;
+    width: 100%;
+}
+
+.main {
+    padding-right: 1ch;
+}
+
+/* Single column on screen at every width, and in any media type at >= 960px. */
+@media screen, (width >=960px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content auto min-content;
+    }
+}
+
+@media screen and (width >=1100px) {
+    .container {
+        grid-template-columns: minmax(16ch, 24ch) minmax(72ch, 80ch);
+        max-width: 96ch;
+    }
+
+    footer {
+        grid-column: 1 / 3;
+    }
+}
+
+@media screen and (width >=1400px) {
+    .container {
+        max-width: 110ch;
+    }
+}
+
+/* ==========================================================================
+   Sidebar — Name
+   ========================================================================== */
+
+#name {
+    font-size: inherit;
+}
+
+#name a {
+    border-bottom: 0;
+    color: inherit;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   Sidebar — Navigation
+   ========================================================================== */
+
+.side .nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.side .nav ul li {
+    line-height: 1.75;
+    margin-left: 0;
+}
+
+.side .nav ul li::before {
+    content: "";
+}
+
+.side .post-nav {
+    margin-top: 0.5ch;
+}
+
+.side .post-nav ul li {
+    color: var(--ff-mint);
+    display: block;
+    line-height: 1.65;
+    overflow: hidden;
+    padding-left: calc(2ch + 0.25rem);
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.side .post-nav ul li::before {
+    content: "\251C\2500";
+    font-size: 1.1rem;
+    left: 0;
+    position: absolute;
+}
+
+.side .post-nav ul li:last-child::before {
+    content: "\2514\2500";
+}
+
+.side .post-nav ul li > a {
+    border-bottom: 1px dashed;
+}
+
+@media screen and (width <=1100px) {
+    .side .post-nav {
+        display: none;
+    }
+
+    .side .nav ul {
+        column-gap: 2ch;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        row-gap: 0;
+    }
+}
+
+@media screen and (width >=1100px) {
+    .side .post-nav,
+    .side .nav ul {
+        display: block;
+    }
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+    border-top: 1px solid var(--ff-yellow);
+    padding-top: 1rem;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Components — Post Details, Post Content, Post List
+   ========================================================================== */
+
+.post-details {
+    border-bottom: 1px solid var(--ff-darkyellow);
+    margin-bottom: 1rem;
+}
+
+.post-details ul {
+    max-width: fit-content;
+}
+
+.post-details ul li {
+    margin-right: 1ch;
+}
+
+.post-details time {
+    display: block;
+    padding-top: 1rem;
+}
+
+.post-content .highlight {
+    margin-bottom: 1em;
+    max-width: 70vw;
+}
+
+.post-content figure img {
+    height: auto;
+    width: 100%;
+}
+
+.post-content pre,
+.post-content .highlight pre {
+    overflow-x: auto;
+    padding: 1ch;
+}
+
+.post-content pre code,
+.post-content .highlight pre code {
+    background: transparent;
+    padding: 0;
+}
+
+.lnt {
+    display: block;
+}
+
+#post-list article {
+    margin-bottom: 1rem;
+}
+
+#post-list article p {
+    margin-bottom: 0;
+}
+
+#post-list article p.date {
+    color: var(--ff-pink);
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+.no-bullets {
+    list-style: none;
+}
+
+.inline-list {
+    display: flex;
+    flex-flow: row wrap;
+    place-content: center space-between;
+}
+
+.inline-list li {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Resume
+   ========================================================================== */
+
+details summary::marker {
+    /* plus */
+    content: "[\002B]\A0";
+}
+
+details summary:hover::marker {
+    color: var(--ff-yellow);
+    cursor: pointer;
+}
+
+details[open] summary::marker {
+    /* minus */
+    content: "[\2212]\A0";
+}
+
+#details-and-controls {
+    align-items: normal;
+    column-gap: 2ch;
+    display: grid;
+    grid-template-columns: minmax(0, auto) auto;
+
+    @media screen and (width >=1000px) {
+        margin-top: 1.75em;
+    }
+}
+
+#print-options {
+    justify-self: self-end;
+    margin-top: 0;
+    display: grid;
+    gap: 1lh;
+
+    legend {
+        color: var(--ff-pink);
+    }
+
+    fieldset {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+
+    label {
+        display: inline-block;
+        margin: 5px 0 0;
+        position: relative;
+    }
+
+    label:hover {
+        color: var(--ff-yellow);
+    }
+
+    input[type="radio"] {
+        opacity: 0;
+        position: absolute;
+    }
+
+    span {
+        display: inline-block;
+        padding-left: 40px;
+        position: relative;
+    }
+
+    span::before {
+        border-bottom: 1px dashed;
+        bottom: 0;
+        content: "";
+        left: 0;
+        position: absolute;
+        width: 30px;
+    }
+
+    input[type="radio"]:focus ~ span::before,
+    input[type="radio"]:checked ~ span::before {
+        border-bottom: 1px solid;
+    }
+
+    input[type="radio"]:checked ~ span::after {
+        color: #fff;
+        content: "\2713";
+        font-size: 12px;
+        left: 12px;
+        position: absolute;
+        top: 1px;
+    }
+
+    input[type="text"],
+    textarea {
+        background: none;
+        border: 1px solid var(--ff-white);
+        color: var(--ff-white);
+        padding: 0.5lh 1ch;
+    }
+
+    input[type="text"]:placeholder-shown,
+    textarea:placeholder-shown {
+        border: 1px dashed var(--ff-white);
+    }
+
+    input[type="text"]:focus,
+    input[type="text"]:hover,
+    textarea:focus,
+    textarea:hover {
+        border-color: var(--ff-yellow);
+    }
+}
+
+.time-wrap::before {
+    content: " • ";
+}
+
+@media screen and (width < 700px) {
+    #details-and-controls {
+        grid-template-columns: 1fr;
+    }
+
+    #print-options {
+        display: none;
+    }
+
+    details li {
+        margin-left: 4ch;
+    }
+
+    summary {
+        line-height: 1.5;
+    }
+
+    .time-wrap {
+        display: block;
+    }
+
+    .time-wrap::before {
+        content: "";
+    }
+
+    summary .time-wrap::before {
+        padding-left: 4ch;
+    }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    #print-options {
+        display: none;
+    }
+
+    html:has(#print-minimal:checked) {
+        #experience details:first-of-type::details-content {
+            content-visibility: visible !important;
+        }
+    }
+
+    html:has(#print-full:checked) {
+        /* Reveal closed <details> content */
+        details > *:not(summary) {
+            display: block;
+        }
+
+        details::details-content {
+            content-visibility: visible !important;
+        }
+    }
+
+    details summary::marker {
+        content: "";
+    }
+
+    details[open] summary::marker {
+        content: "";
+    }
+
+    details {
+        margin-bottom: 1rem;
+        margin-left: 2rem;
+    }
+
+    .no-print {
+        display: none;
+    }
+
+    .container {
+        display: block;
+    }
+
+    .main {
+        grid-column: unset;
+        grid-row: unset;
+        max-width: 108ch;
+        padding: 0;
+        padding-right: 1rem;
+    }
+
+    html {
+        background: white;
+        color: black;
+        font-size: 0.75rem;
+        max-width: 100%;
+    }
+
+    body {
+        max-width: 100%;
+        padding-top: 1rem;
+    }
+
+    cite,
+    i,
+    em {
+        color: black;
+        text-decoration: underline solid;
+    }
+
+    b,
+    strong {
+        color: black;
+        text-decoration: underline double;
+    }
+
+    blockquote,
+    p,
+    table,
+    .post-details {
+        max-width: 100%;
+    }
+
+    a,
+    a:visited,
+    a:active {
+        border-bottom: none;
+        color: black;
+    }
+
+    details,
+    table,
+    blockquote,
+    ul,
+    ol {
+        break-inside: avoid;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        break-after: avoid;
+        font-style: normal;
+        font-weight: bold;
+        letter-spacing: 0.125ch;
+        margin: 0 0 1rem;
+        text-decoration: none;
+    }
+
+    h1::before,
+    h2::before,
+    h3::before,
+    h4::before,
+    h5::before,
+    h6::before {
+        content: "";
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+    }
+
+    section {
+        margin-top: 2rem;
+    }
+
+    p code,
+    li code {
+        background: none;
+        color: black;
+        display: inline;
+        padding: 0;
+    }
+
+    abbr {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+/* ==========================================================================
+   Accessibility — Hide from Screen
+   ========================================================================== */
+
+@media screen {
+    .only-print {
+        display: none;
+    }
+}
