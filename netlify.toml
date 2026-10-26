@@ -1,22 +1,33 @@
 [build]
-command = "hugo --gc --minify"
+command = "./scripts/build.sh"
 publish = "public"
+
+# preview deploys show drafts; production never does
+[context.deploy-preview]
+command = "./scripts/build.sh --buildDrafts"
+
+[context.branch-deploy]
+command = "./scripts/build.sh --buildDrafts"
 
 [build.environment]
 HUGO_VERSION = "0.167.0"
 
-[[edge_functions]]
-function = "private-pages"
-path     = "/resume"
+[dev]
+command = "hugo serve --buildDrafts"
+# command = "./scripts/build.sh --buildDrafts"
 
 [[edge_functions]]
 function = "private-pages"
-path     = "/resume/*"
+path = "/resume"
 
 [[edge_functions]]
 function = "private-pages"
-path     = "/cover-letter"
+path = "/resume/*"
 
 [[edge_functions]]
 function = "private-pages"
-path     = "/cover-letter/*"
+path = "/cover-letter"
+
+[[edge_functions]]
+function = "private-pages"
+path = "/cover-letter/*"
