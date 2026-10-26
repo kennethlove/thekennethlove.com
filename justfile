@@ -15,9 +15,9 @@ default:
 dev:
     #!/usr/bin/env bash
     set -euo pipefail
-    frag="{{frag}}"
-    site="{{site}}"
-    cd "{{justfile_directory()}}"
+    frag="{{ frag }}"
+    site="{{ site }}"
+    cd "{{ justfile_directory() }}"
     [ -f .env ] || { echo ".env missing — needs RESUME_KEY and COVER_REPO_TOKEN"; exit 1; }
     grep -q '^FRAGMENT_URL=' .env || printf '\nFRAGMENT_URL=http://localhost:%s/resume-contacts.html\nCOVER_LETTER_URL=http://localhost:%s/cover-letter.html\n' "$frag" "$frag" >> .env
     [ -d ../private-content ] || { echo "../private-content missing — fragment repo not cloned"; exit 1; }
@@ -38,15 +38,15 @@ dev:
 
 # Grant the resume cookie in your default browser (30-day key cookie)
 login:
-    @open "http://localhost:{{site}}/resume/?key=$(grep '^RESUME_KEY=' {{justfile_directory()}}/.env | cut -d= -f2-)"
+    @open "http://localhost:{{ site }}/resume/?key=$(grep '^RESUME_KEY=' {{ justfile_directory() }}/.env | cut -d= -f2-)"
 
 # Smoke the loop: anonymous stays lean, cookie injects, cover letter gated
 test:
     #!/usr/bin/env bash
     set -uo pipefail
-    cd "{{justfile_directory()}}"
+    cd "{{ justfile_directory() }}"
     key=$(grep '^RESUME_KEY=' .env | cut -d= -f2-)
-    base="http://localhost:{{site}}"
+    base="http://localhost:{{ site }}"
     rm -f /tmp/loop-jar
     anon=$(curl -s -o /tmp/loop-anon.html -w '%{http_code}' "$base/resume/")
     keycode=$(curl -s -c /tmp/loop-jar -o /dev/null -w '%{http_code}' "$base/resume/?key=$key")
@@ -60,9 +60,9 @@ test:
 # Stop what the loop started: fragment server, netlify dev, its hugo and edge isolate
 stop:
     #!/usr/bin/env bash
-    lsof -ti tcp:{{frag}} 2>/dev/null | xargs kill 2>/dev/null
-    lsof -ti tcp:{{site}} 2>/dev/null | xargs kill 2>/dev/null
+    lsof -ti tcp:{{ frag }} 2>/dev/null | xargs kill 2>/dev/null
+    lsof -ti tcp:{{ site }} 2>/dev/null | xargs kill 2>/dev/null
     pkill -f 'hugo server' 2>/dev/null
     pkill -f 'edge-functions-serve' 2>/dev/null
     sleep 1
-    echo "stopped: frag=$(nc -z 127.0.0.1 {{frag}} 2>/dev/null && echo up || echo down) site=$(nc -z 127.0.0.1 {{site}} 2>/dev/null && echo up || echo down)"
+    echo "stopped: frag=$(nc -z 127.0.0.1 {{ frag }} 2>/dev/null && echo up || echo down) site=$(nc -z 127.0.0.1 {{ site }} 2>/dev/null && echo up || echo down)"
