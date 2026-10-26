@@ -23,6 +23,13 @@
 html {
     background-color: var(--ff-purple);
     color: var(--ff-white);
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 html,
@@ -130,6 +137,23 @@ figure blockquote {
 figcaption {
     color: var(--ff-yellow);
     display: block;
+}
+
+/* Alert callouts ([!NOTE] etc.), see _default/_markup/render-blockquote.html */
+.alert {
+    background-color: var(--ff-violet);
+    border-left: 0.25rem solid var(--ff-yellow);
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+}
+
+.alert p {
+    margin: 0.5rem 0;
+}
+
+.alert-label {
+    color: var(--ff-yellow);
+    font-weight: bold;
 }
 
 figcaption code {
@@ -385,6 +409,7 @@ footer {
 
 .post-details {
     border-bottom: 1px solid var(--ff-darkyellow);
+    font-size: 0.85rem;
     margin-bottom: 1rem;
 }
 
@@ -394,6 +419,10 @@ footer {
 
 .post-details ul li {
     margin-right: 1ch;
+}
+
+.post-details ul li::before {
+    content: "";
 }
 
 .post-details time {
@@ -421,6 +450,19 @@ footer {
 .post-content .highlight pre code {
     background: transparent;
     padding: 0;
+}
+
+.post-content .footnote-ref {
+    font-size: 0.75rem;
+    vertical-align: 0.5lh;
+}
+
+.post-content hr {
+    border-top: 1px dashed var(--ff-yellow);
+}
+
+.post-content .footnotes li {
+    font-size: 0.85rem;
 }
 
 .lnt {
