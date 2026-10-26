@@ -1,7 +1,7 @@
 +++
-title = "Making Custom Resumes the Easy Way™."
+title = "Making Custom Resumes the Easy Way™"
 date = 2026-10-22
-draft = true
+draft = false
 tags = [
     "HTML",
     "CSS",
@@ -39,7 +39,7 @@ for. I knocked up a basic Markdown resume and called it good enough.[^2]
 
 As the hours and days went on, I steadily refined the HTML and CSS until I was
 happy with it, I felt it was semantic enough, and the design was readable.
-Great! Now to just "print to PDF" and...that doesn't look great. Navigation
+Excellent! Now to just "print to PDF" and...that doesn't look great. Navigation
 menus were visible. The document was 4-5 pages long when printed. There had to
 be a better way!
 
@@ -68,8 +68,8 @@ But here comes the first issue: I want the details to be collapsed when viewed
 on the screen (except for the first one), but _open_ when printed, so you can
 read the information. You can add an `open` attribute to `<details>` to make it
 automatically be open and, if you give 2+ `details` the same `name` attribute,
-they'll act like an accordion and only allow one open at a time. Great but neither
-addresses my problem. CSS to the rescue!
+they'll act like an accordion and only allow one open at a time. Great, but
+neither addresses my problem. CSS to the rescue!
 
 I first made sure none of the `details` had matching `name`s. They need to all be
 openable. The first one gets the `open` attribute. The screen side is basically
@@ -77,12 +77,16 @@ done, but now for the printing. Let's bring some control to this page.
 
 ## What you see is what you print
 
-First thing I did was add a print-only section to my stylesheet and a no-print
-rule. If you haven't seen rules like these before, they look like this:
+First thing I did was add a print section to my stylesheet with a no-print
+rule and a screen section with a print-only rule. If you haven't seen rules
+like these before, they look like this:
 
 ```css
 /* Only applies when printing */
 @media print {
+  .no-print {
+    display: none;
+  }
 }
 
 /* Hides from screens, shows otherwise */
@@ -97,12 +101,34 @@ rule. If you haven't seen rules like these before, they look like this:
 what that interface needs. The only ones I care about for this article are
 these two but there are [other interfaces available].
 
-Next, I added a new `div` to the resume and put a `<form>` inside of it. In this
-form, inside of a `<fieldset>`, I made three radio buttons: minimal, as-is,
-full. Each got an `id` as well, like `<input name="print-options" type="radio" id="print-minimal">`.
-The `id` is the trick, so don't forget it!
+Next, I had to create the form with the controls. Again, I wanted semantic HTML
+so I ended up with something like this:
 
-Now, in my CSS, I add the following kind of rules to my print styles:
+```html
+<div id="print-controls">
+  <form>
+    <fieldset>
+      <legend>Print options</legend>
+      <label>
+        <input type="radio" name="print-options" id="print-minimal" />
+        Minimal
+      </label>
+      <label>
+        <input type="radio" name="print-options" id="print-as-is" checked />
+        As-is
+      </label>
+      <label>
+        <input type="radio" name="print-options" id="print-full" /> Full
+      </label>
+    </fieldset>
+  </form>
+</div>
+```
+
+Since each radio `input` has the same name, only one of them can be selected at
+a time; a `select` element would work just as well. Giving each radio button its
+own `id` is the important part for what we're going to do next. Now, in my CSS,
+I'll add the following kind of rules to my print styles:
 
 ```css
 html:has(#print-minimal:checked) {
