@@ -1,17 +1,29 @@
-baseURL         = "https://thekennethlove.com/"
+baseURL = "https://thekennethlove.com/"
 enableRobotsTXT = true
-locale          = "en-US"
-rssLimit        = 10
-theme           = "editor"
-title           = "Kenneth Love"
+locale = "en-US"
+rssLimit = 10
+theme = "editor"
+title = "Kenneth Love"
+
+# Drafts clone from the private content repo (.drafts) at build time.
+[[module.mounts]]
+source = "content"
+target = "content"
+
+[[module.mounts]]
+source = ".drafts/content/posts"
+target = "content/drafts"
 
 [author]
 name = "Kenneth Love"
 
 [markup]
+[markup.goldmark.parser.attribute]
+block = true
+
 [markup.highlight]
 codeFences = true
-noClasses  = false
+noClasses = false
 
 [markup.goldmark.renderer]
 unsafe = true
@@ -24,38 +36,38 @@ posts = "/:year/:month/:title/"
 
 [taxonomies]
 category = "categories"
-series   = "series"
-tag      = "tags"
+series = "series"
+tag = "tags"
 
 [[menu.main]]
 identifier = "readme"
-name       = "README.md"
-url        = "/"
-weight     = 100
+name = "README.md"
+url = "/"
+weight = 100
 
 [[menu.main]]
 identifier = "resume"
-name       = "resume.md"
-url        = "/resume/"
-weight     = 110
+name = "resume.md"
+url = "/resume/"
+weight = 110
 
 [[menu.main]]
 identifier = "mentoring"
-name       = "mentoring.md"
-url        = "/mentoring/"
-weight     = 120
+name = "mentoring.md"
+url = "/mentoring/"
+weight = 120
 
 [[menu.main]]
 identifier = "videos"
-name       = "videos.md"
-url        = "/videos/"
-weight     = 130
+name = "videos.md"
+url = "/videos/"
+weight = 130
 
 [[menu.main]]
 identifier = "posts"
-name       = "posts/"
-url        = "/posts/"
-weight     = 140
+name = "posts/"
+url = "/posts/"
+weight = 140
 
 # WHY: default minifier strips HTML comments, killing the `<!-- slot:.. -->`
 # anchors the edge function splices private snippets onto. Verified a no-op on

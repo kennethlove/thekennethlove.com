@@ -8,6 +8,9 @@ resources/
 .DS_Store
 .private/
 
+# drafts live in the private content repo, cloned locally and at build time
+.drafts/
+
 # Local Netlify folder
 .netlify
 
