@@ -1,17 +1,16 @@
-{{ define "title" }}Resume from Kenneth Love{{ end }}
-
-{{ define "main" }}
-    {{ .Content }}
-    <script>
-      const original = document.title;
-      document.querySelector("#resume-title").addEventListener("change", (e) => {
+{{ define "title" }}Resume from Kenneth Love{{ end }} {{ define "main" }} {{
+.Content }}
+<script>
+    const original = document.title;
+    document.querySelector("#resume-title").addEventListener("change", (e) => {
         const title = e.target.value;
         if (title !== "") {
-          document.querySelector("#title").innerHTML = document.title = e.target.value;
+            document.querySelector("#title").textContent = document.title =
+                e.target.value;
         } else {
-          document.querySelector("#title").innerHTML = document.title = original;
+            document.querySelector("#title").textContent = document.title =
+                original;
         }
-      });
-    </script>
+    });
+</script>
 {{ end }}
-
