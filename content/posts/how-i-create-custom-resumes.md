@@ -1,17 +1,18 @@
 +++
-title = "Making Custom Resumes the Easy Way™"
-date = 2026-10-22
+categories = [
+    "Blog",
+]
+date = 2026-10-26
 draft = false
+lastmod = 2026-10-27
+summary = "When all you have is HTML, everything looks like a Web page"
 tags = [
     "HTML",
     "CSS",
     "JavaScript",
     "Hugo"
 ]
-categories = [
-    "Blog",
-]
-summary = "When all you have is HTML, everything looks like a Web page"
+title = "Making Custom Resumes the Easy Way™"
 +++
 
 Well, OK, maybe not the _easy_ easy way but definitely easier than a bunch of
@@ -174,9 +175,8 @@ another input to my print controls, this time a text input for the resume title.
 <input type="text" id="resume-title" />
 ```
 
-Unfortunately, I can't insert live data via CSS (if I'm wrong, please tell me), so
-we'll have to use some JavaScript. But not much, so I can convince myself it's
-okay.
+Unfortunately, I can't insert live data via CSS [^3], so we'll have to use some
+JavaScript. But not much, so I can convince myself it's okay.
 
 ```js
 const original = document.title;
@@ -237,7 +237,7 @@ I might drop a couple of bits of knowledge that I picked up while working on thi
   The first rule keeps your tables and other groups from being broken apart.
   The second keeps the headline with the thing it's describing.
 
-## Laziness rewarded!
+## Laziness rewarded
 
 Now it's easy for me to update the resume title and what content shows up in the
 PDF. This has made it much easier for me to submit applications and I get a
@@ -248,6 +248,8 @@ be explaining how soon.
 [^1]: Not that what I created isn't a mess, but it's _my_ mess.
 
 [^2]: No, _you're_ too stubborn to listen to the custom resume advice. And who writes cover letters?
+
+[^3]: Am I wrong? Please tell me I'm wrong.
 
 [LinkedIn]: https://linkedin.com/in/thekennethlove
 [/resume/]: https://thekennethlove.com/resume/
