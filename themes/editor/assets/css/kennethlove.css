@@ -598,6 +598,11 @@ details[open] summary::marker {
         padding: 0.5lh 1ch;
     }
 
+    textarea {
+        /* grows with content; falls back to fixed rows where unsupported */
+        field-sizing: content;
+    }
+
     input[type="text"]:placeholder-shown,
     textarea:placeholder-shown {
         border: 1px dashed var(--ff-white);

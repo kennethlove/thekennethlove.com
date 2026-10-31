@@ -345,8 +345,8 @@ I can tell y'all about it. That last part is the best one.
 [^1]: My name was on there elsewhere but the point still stands.
 [^2]: The grant request itself reaches Netlify's edge with the secret still in it, so anything that logs request URLs records it.
 
-[post about custom resumes]: {{< ref "/posts/making-custom-resumes-the-easy-way" >}}
-[before]: {{< ref "/posts/making-custom-resumes-the-easy-way" >}}
+[post about custom resumes]: /posts/making-custom-resumes-the-easy-way
+[before]: /posts/making-custom-resumes-the-easy-way
 [Hugo]: <https://gohugo.io>
 [Netlify]: <https://netlify.com>
 ["server-side includes"]: <https://en.wikipedia.org/wiki/Server_Side_Includes>

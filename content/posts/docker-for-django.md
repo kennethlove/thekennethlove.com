@@ -17,7 +17,7 @@ summary = "This is my current Docker set up for Django development. I think it w
 
 **Note:** This article was written in 2019. I've updated what I can see as being
 outdated or outdate-able, so it _should_ be pretty reliable, but I make no
-promises. If you find something that's wrong, please [let me know](/social/).
+promises. If you find something that's wrong, please [let me know](https://tech.lgbt/@klove).
 
 
 At [my company](https://oreilly.com), we've been developing a common Docker

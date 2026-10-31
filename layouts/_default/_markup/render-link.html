@@ -1,0 +1,23 @@
+{{- /* WHY: official docs mark the ref shortcode obsolete for Markdown; this
+replaces it with strict resolution — internal paths must name a content page
+or the build fails (errorf), external/fragment destinations pass through. */ -}}
+{{- $dest := .Destination -}}
+{{- $passthrough := or (eq $dest "") (hasPrefix $dest "#") (hasPrefix $dest "//")
+      (hasPrefix $dest "http://") (hasPrefix $dest "https://")
+      (hasPrefix $dest "mailto:") (hasPrefix $dest "tel:") -}}
+{{- $href := $dest -}}
+{{- if not $passthrough -}}
+  {{- $path := $dest -}}
+  {{- $frag := "" -}}
+  {{- if findRE "#" $dest -}}
+    {{- $parts := split $dest "#" -}}
+    {{- $path = index $parts 0 -}}
+    {{- $frag = printf "#%s" (index $parts 1) -}}
+  {{- end -}}
+  {{- with .Page.GetPage $path -}}
+    {{- $href = printf "%s%s" .RelPermalink $frag -}}
+  {{- else -}}
+    {{- errorf "render-link: no content page for link %q (%s)" $dest $.Position -}}
+  {{- end -}}
+{{- end -}}
+<a href="{{ $href }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text }}</a>
