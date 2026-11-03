@@ -1,5 +1,3 @@
-# how-i-plan-work-with-agents
-
 +++
 title = "How I Plan Work With Agents"
 date = 2026-10-22
