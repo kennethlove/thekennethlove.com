@@ -1,6 +1,6 @@
 +++
 title = "How I Plan Work With Agents"
-date = 2026-10-22
+date = 2026-11-03
 lastmod = 2026-11-03T15:16
 draft = false
 tags = [
