@@ -7,7 +7,6 @@
   <meta name="description" content='{{ block "description" . }}{{ .Summary }}{{ end }}'>
   <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  {{/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/maple-mono@5.3.0/index.css" crossorigin> */}}
   {{ $colors := resources.Get "css/colors.css" }}
   {{ $chroma := resources.Get "css/chroma.css" }}
   {{ $main := resources.Get "css/kennethlove.css" }}

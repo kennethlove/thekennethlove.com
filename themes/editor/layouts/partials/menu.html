@@ -8,7 +8,7 @@
     <nav class="nav post-nav">
         <ul>
             {{ range first 3 (where
-            .Site.Taxonomies.categories.blog.Pages.ByDate.Reverse "Section"
+            .Site.Taxonomies.categories.blog.Pages.ByPublishDate.Reverse "Section"
             "posts") }}
             <li>
                 <a

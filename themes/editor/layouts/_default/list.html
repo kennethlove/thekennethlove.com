@@ -12,7 +12,7 @@
         {{ range .Data.Pages }}
         <article>
             <a href="{{ .Permalink }}">{{ .Title }}</a>
-            <p class="date">{{ .Date.Format "2006-01-02" }}</p>
+            <p class="date">{{ .PublishDate.Format "2006-01-02" }}</p>
             <p>{{ .Description }}</p>
         </article>
         {{ end }}

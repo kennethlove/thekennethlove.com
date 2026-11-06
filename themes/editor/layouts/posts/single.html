@@ -7,7 +7,7 @@
             <h1 id="title">{{ .Title }}</h1>
 
             <div class="post-details">
-                <time datetime="{{ .Date.Format "2006-01-02" }}">Posted on {{ .Date.Format "Mon Jan 2, 2006" }}</time>
+                <time datetime="{{ .PublishDate.Format "2006-01-02" }}">Posted on {{ .PublishDate.Format "Mon Jan 2, 2006" }}</time>
                 <ul class="no-bullets inline-list post-tags">
                     {{ with .Params.tags }}
                     {{ range . }}
