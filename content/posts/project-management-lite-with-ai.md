@@ -1,6 +1,6 @@
 +++
 title = "Project Management Lite With AI"
-date = 2026-10-22
+date = 2026-11-05
 lastmod = 2026-11-05
 draft = false
 tags = [
