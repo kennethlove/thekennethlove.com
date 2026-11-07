@@ -27,12 +27,13 @@
 </head>
 
 <body>
+  <a class="skip-link no-print" href="#main">Skip to content</a>
   <div class="container">
     <div class="side no-print">
-      <h1 id="name"><a href="/">Kenneth Love</a></h1>
+      <a id="name" href="/">Kenneth Love</a>
       {{ partial "menu.html" . }}
     </div>
-    <main class="main">{{ block "main" . }} {{ end }}</main>
+    <main class="main" id="main">{{ block "main" . }} {{ end }}</main>
     <footer class="no-print">
       <p>This site and its content are distributed as a <a
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/">by-nc-sa</a>

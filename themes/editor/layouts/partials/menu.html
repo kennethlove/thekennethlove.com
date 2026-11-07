@@ -5,7 +5,7 @@
         {{ end }}
     </ul>
 
-    <nav class="nav post-nav">
+    <nav class="nav post-nav" aria-label="Recent posts">
         <ul>
             {{ range first 3 (where
             .Site.Taxonomies.categories.blog.Pages.ByPublishDate.Reverse "Section"
