@@ -11,7 +11,6 @@
     font-style: normal;
     font-weight: 400;
     margin: 0;
-    outline: 0;
     padding: 0;
     vertical-align: baseline;
 }
@@ -129,7 +128,7 @@ figure {
 }
 
 figure blockquote {
-    background-color: #47415e;
+    background-color: var(--ff-ink);
     margin-left: 0;
     padding: 0.5rem;
 }
@@ -158,7 +157,7 @@ figcaption {
 
 figcaption code {
     background: var(--ff-violet);
-    color: #f6d3ff;
+    color: var(--ff-white);
     display: inline-block;
     padding: 0.125rem 0.3rem;
 }
@@ -178,7 +177,7 @@ a:focus,
 a:active {
     background-color: var(--ff-yellow);
     border-bottom-style: solid;
-    color: var(--ff-purple);
+    color: var(--ff-ink);
 }
 
 em {
@@ -224,10 +223,16 @@ table tbody tr:first-child td {
     text-align: center;
 }
 
+@media screen and (width < 700px) {
+    table td {
+        padding: 0.25rem;
+    }
+}
+
 li code,
 p code {
     background: var(--ff-violet);
-    color: #f6d3ff;
+    color: var(--ff-white);
     display: inline-block;
     padding: 0.25ch 0.5ch;
 }
@@ -313,13 +318,16 @@ ul {
    ========================================================================== */
 
 #name {
-    font-size: inherit;
-}
-
-#name a {
     border-bottom: 0;
     color: inherit;
+    display: block;
     font-weight: bold;
+    margin: 2em 0 1rem;
+}
+
+#name:hover,
+#name:focus {
+    color: var(--ff-ink);
 }
 
 /* ==========================================================================
@@ -432,7 +440,7 @@ footer {
 
 .post-content .highlight {
     margin-bottom: 1em;
-    max-width: 70vw;
+    max-width: 100%;
 }
 
 .post-content figure img {
@@ -485,6 +493,27 @@ footer {
    Utilities
    ========================================================================== */
 
+.skip-link,
+.skip-link:visited {
+    background: var(--ff-yellow);
+    border-bottom: 0;
+    color: var(--ff-ink);
+    left: 0.5rem;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    top: -5rem;
+    z-index: 10;
+}
+
+.skip-link:focus {
+    top: 0.5rem;
+}
+
+:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
 .no-bullets {
     list-style: none;
 }
@@ -511,6 +540,10 @@ details summary::marker {
 details summary:hover::marker {
     color: var(--ff-yellow);
     cursor: pointer;
+}
+
+summary:focus-visible {
+    outline-color: var(--ff-yellow);
 }
 
 details[open] summary::marker {
@@ -582,7 +615,7 @@ details[open] summary::marker {
     }
 
     input[type="radio"]:checked ~ span::after {
-        color: #fff;
+        color: var(--ff-white);
         content: "\2713";
         font-size: 12px;
         left: 12px;
