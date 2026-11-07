@@ -21,3 +21,6 @@ netlify/edge-functions/*.html
 .env
 .env.*
 !.env.example
+
+# UX review scratch (screenshots, DOM dumps)
+.ux/
