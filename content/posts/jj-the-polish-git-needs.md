@@ -13,7 +13,7 @@ tags = [
 categories = [
     "Blog",
 ]
-summary = "Really, y'all, it's **that** good."
+summary = "git got gud"
 +++
 
 I can remember spending many, many days reading, experimenting, and cursing when
