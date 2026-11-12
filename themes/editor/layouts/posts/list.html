@@ -12,7 +12,7 @@
         {{ range .Data.Pages.ByPublishDate.Reverse }}
         <article>
             <a href="{{ .Permalink }}">{{ .Title }}</a>
-            <p class="date">{{ .PublishDate.Format "2006-01-02" }}</p>
+            <time datetime="{{.PublishDate }}">{{ .PublishDate.Format "2006-01-02" }}</time>
             <p>{{ .Summary | plainify }}</p>
         </article>
         {{ end }}
