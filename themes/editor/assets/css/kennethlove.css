@@ -79,6 +79,7 @@ h6 {
     letter-spacing: 0.125ch;
     margin-top: 2em;
     text-decoration: underline;
+    text-underline-offset: 0.5lh;
 }
 
 h1::before {
@@ -290,7 +291,8 @@ ul {
 }
 
 /* Single column on screen at every width, and in any media type at >= 960px. */
-@media screen, (width >=960px) {
+@media screen,
+(width >=960px) {
     .container {
         grid-template-columns: 1fr;
         grid-template-rows: min-content auto min-content;
@@ -396,6 +398,7 @@ ul {
 }
 
 @media screen and (width >=1100px) {
+
     .side .post-nav,
     .side .nav ul {
         display: block;
@@ -479,15 +482,16 @@ footer {
 }
 
 #post-list article {
-    margin-bottom: 1rem;
+    margin-bottom: 2lh;
 }
 
 #post-list article p {
-    margin-bottom: 0;
+    margin-top: 0.5lh;
 }
 
-#post-list article p.date {
+#post-list article time {
     color: var(--ff-pink);
+    font-weight: normal;
 }
 
 /* ==========================================================================
@@ -700,6 +704,7 @@ details[open] summary::marker {
     }
 
     html:has(#print-full:checked) {
+
         /* Reveal closed <details> content */
         details > *:not(summary) {
             display: block;
