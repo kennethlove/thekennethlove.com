@@ -1,7 +1,7 @@
 +++
 title = "The Pi-ed Piper"
 date = 2026-10-22
-lastmod = 2026-10-28
+lastmod = 2026-11-12
 pubdate = 2026-11-13
 draft = false
 tags = [
