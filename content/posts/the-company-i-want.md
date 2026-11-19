@@ -126,8 +126,8 @@ life all on our own. If our career is going to be such a major part of that
 life, it should be accessible, achievable, and it should feel like something we
 can be proud of doing. I'd be very proud of this.
 
-[^1] I'm going to bet it would even be _preferred_.
-[^2] Yes, it's one company. Shut up.
-[^3] Yet another reason billionaires are a bad idea, they stiffle the economy by
+[^1]: I'm going to bet it would even be _preferred_.
+[^2]: Yes, it's one company. Shut up.
+[^3]: Yet another reason billionaires are a bad idea, they stiffle the economy by
   hoarding wealth.
-[^4] I mean, of course. Have y'all seen yourselves?
+[^4]: I mean, of course. Have y'all seen yourselves?
