@@ -13,7 +13,7 @@
         <article>
             <a href="{{ .Permalink }}">{{ .Title }}</a>
             <p class="date">{{ .PublishDate.Format "2006-01-02" }}</p>
-            <p>{{ .Summary | plainify }}</p>
+            <p>{{ .Summary | safeHTML }}</p>
         </article>
         {{ end }}
     </nav>
