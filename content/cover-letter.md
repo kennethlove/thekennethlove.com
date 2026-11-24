@@ -1,5 +1,5 @@
----
-title: Cover letter
----
++++
+title = "Cover letter"
++++
 
 <!-- slot:cover-letter -->
