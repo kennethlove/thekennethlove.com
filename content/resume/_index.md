@@ -18,7 +18,7 @@ summary = "Resume"
     <dt>GitHub</dt>
     <dd><a href="https://github.com/kennethlove" rel="author me noreferrer noopener" target="_blank">https://github.com/kennethlove</a></dd>
     <dt>LinkedIn</dt>
-    <dd><a href="https://linkedin.com/in/kennethhate" rel="author me noreferrer noopener" target="_blank">https://linkedin.com/in/kennethhate</a></dd>
+    <dd><a href="https://linkedin.com/in/thekennethlove" rel="author me noreferrer noopener" target="_blank">https://linkedin.com/in/thekennethlove</a></dd>
   </dl>
 
   <!-- slot:print-options -->
